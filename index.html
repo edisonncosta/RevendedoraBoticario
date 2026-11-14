@@ -36,7 +36,7 @@ header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;
 .cartbtn{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:4px;padding:0 16px;height:46px;font-weight:600}
 .cartbtn .n{background:#fff;color:var(--ink);border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;padding:0 6px}
 .search{padding:0 0 12px;display:flex;gap:8px}
-.search input{flex:1;height:46px;border:1px solid #BDBDBD;border-radius:4px;padding:0 14px;font:inherit;font-size:16px}
+.search input{flex:1;min-width:0;height:46px;border:1px solid #BDBDBD;border-radius:4px;padding:0 14px;font:inherit;font-size:16px}
 .search select{height:46px;border:1px solid #BDBDBD;border-radius:4px;padding:0 10px;font:inherit;font-size:15px;background:#fff;max-width:44%}
 .hero{background:#fff;margin:16px 0;border-radius:4px;padding:20px;display:grid;gap:10px}
 .hero h1{margin:0;font-size:28px;color:var(--green);line-height:1.1}
@@ -123,6 +123,30 @@ header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;
 .rank{position:absolute;top:8px;left:8px;background:var(--ink);color:#fff;border-radius:4px;font-weight:800;font-size:13px;padding:3px 8px}
 .card{position:relative}
 .back{border:0;background:none;color:var(--green);font-weight:700;min-height:44px;padding:0}
+html,body{max-width:100%;overflow-x:hidden}
+main.wrap,.sec,.row-s,.cats,.brands{min-width:0;max-width:100%}
+.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+@media (max-width:520px){
+ .wrap{padding:0 12px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .row-s{grid-auto-columns:calc(50% - 4px);gap:8px}
+ .card{padding:10px;min-width:0}
+ .price{margin:0 -10px;padding:10px}
+ .price .por{font-size:18px}
+ .price .old{font-size:11px;gap:4px}
+ .rows .row{font-size:12px}
+ .card h3{font-size:13px}
+ .top{height:60px}
+ .brand b{font-size:19px}
+ .brand small{font-size:10px;letter-spacing:1px}
+ .cartbtn{padding:0 12px;height:42px}
+ .cartbtn .lbl{display:none}
+ .search select{max-width:40%;font-size:14px}
+ .hero{padding:16px;margin:12px 0}
+ .hero h1{font-size:24px}
+ .cat{min-width:76px}
+ .cat .ring{width:58px;height:58px}
+}
 footer{color:var(--mute);font-size:12px;text-align:center;padding:0 16px 140px}
 </style>
 </head>
@@ -133,7 +157,7 @@ footer{color:var(--mute);font-size:12px;text-align:center;padding:0 16px 140px}
 <div class="logo"><div class="brand"><b>Ana Carolina</b><small>Revendedora Boticário</small></div></div>
 <button class="cartbtn" id="openCart" aria-label="Abrir carrinho">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.4a1 1 0 0 0 1-.8L21 8H6"/></svg>
-Carrinho <span class="n" id="count">0</span></button>
+<span class="lbl">Carrinho</span> <span class="n" id="count">0</span></button>
 </div>
 <div class="search">
 <input id="q" type="search" placeholder="Busque por nome ou código" aria-label="Buscar produtos">
