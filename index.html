@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Carolina · Revendedora Boticário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+<style>
+:root{--green:#0B5A43;--green-l:#E3F1EB;--rose:#C76A82;--ink:#141414;--mute:#5C5C5C;--bg:#F4F4F4;--line:#E6E6E6;--red:#A3252B;--red-l:#FDECEC}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;height:68px}
+.logo{display:flex;align-items:center;gap:10px}
+.mark{width:44px;height:44px;border-radius:999px;padding:3px;background:linear-gradient(135deg,var(--green),#3E8A73 45%,var(--rose));flex:none}
+.mark span{display:flex;width:100%;height:100%;border-radius:999px;background:#fff;align-items:center;justify-content:center;color:var(--green);font-weight:800;font-size:15px;letter-spacing:.5px}
+.brand{display:flex;flex-direction:column;line-height:1.1}
+.brand b{color:var(--green);font-size:21px;font-weight:800;letter-spacing:-.2px}
+.brand small{color:var(--mute);font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase}
+.cartbtn{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:4px;padding:0 16px;height:46px;font-weight:600}
+.cartbtn .n{background:#fff;color:var(--ink);border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;padding:0 6px}
+.search{padding:0 0 12px;display:flex;gap:8px}
+.search input{flex:1;height:46px;border:1px solid #BDBDBD;border-radius:4px;padding:0 14px;font:inherit;font-size:16px}
+.search select{height:46px;border:1px solid #BDBDBD;border-radius:4px;padding:0 10px;font:inherit;font-size:15px;background:#fff;max-width:44%}
+.hero{background:#fff;margin:16px 0;border-radius:4px;padding:20px;display:grid;gap:10px}
+.hero h1{margin:0;font-size:28px;color:var(--green);line-height:1.1}
+.hero p{margin:0;color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;border-radius:4px;padding:10px 16px;font-weight:600;color:var(--ink);min-height:44px}
+.chip[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.cats{display:flex;gap:14px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.cat{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;min-width:86px;color:var(--ink);font-size:13px;font-weight:500;text-align:center}
+.cat .ring{width:66px;height:66px;border-radius:999px;padding:4px;background:linear-gradient(135deg,var(--green),#3E8A73 45%,var(--rose))}
+.cat .ring span{display:flex;width:100%;height:100%;border-radius:999px;background:#fff;align-items:center;justify-content:center}
+.cat[aria-pressed="true"]{font-weight:800;color:var(--green)}
+.brands{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.brands .chip{white-space:nowrap}
+.result{display:flex;justify-content:space-between;align-items:center;margin:14px 0 10px;gap:12px}
+.result h2{font-size:20px;margin:0}
+.result small{color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:12px}
+.card{background:#fff;border-radius:4px;border:1px solid var(--line);padding:12px;display:flex;flex-direction:column;gap:6px}
+.card .ph{width:100%;aspect-ratio:1;border-radius:4px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sp{display:block;width:100%;height:100%;background-size:1000% 1000%;background-repeat:no-repeat}
+.card .ph span{color:var(--mute);font-size:12px}
+.code{font-size:11px;color:var(--mute)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;height:22px;overflow:hidden}
+.tag{font-size:11px;font-weight:700;border-radius:3px;padding:3px 7px;background:#3E6B57;color:#fff}
+.card h3{font-size:14px;font-weight:600;margin:0;line-height:1.3;height:3.9em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.row{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:12px;color:var(--mute)}
+.de{text-decoration:line-through}
+.vars{display:flex;gap:6px;flex-wrap:wrap}
+.var{border:1px solid var(--line);background:#fff;border-radius:4px;padding:6px 8px;font-size:12px;min-height:32px;color:var(--ink)}
+.var[aria-pressed="true"]{border-color:var(--green);background:var(--green-l);color:var(--green);font-weight:700}
+.vsel{height:40px;border:1px solid #BDBDBD;border-radius:4px;padding:0 8px;font:inherit;font-size:14px;background:#fff;width:100%}
+.vlab{font-size:12px;color:var(--mute)}
+.price{background:#F2F2F2;margin:0 -12px;padding:10px 12px}
+.price .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price .lbl{font-weight:600;color:#3D3D3D;font-size:14px}
+.price .r{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.price .old{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mute)}
+.price .por{font-size:20px;font-weight:800;color:var(--ink)}
+.pct{font-size:12px;font-weight:800;background:#3E6B57;color:#fff;border-radius:3px;padding:2px 5px}
+.rows{display:grid}
+.rows .row{display:flex;justify-content:space-between;font-size:14px;color:#3D3D3D;padding:10px 0;border-bottom:1px solid var(--line)}
+.rows .row:last-child{border-bottom:0}
+.varbox{height:58px;display:flex;flex-direction:column;justify-content:flex-end}
+.price .old{min-height:18px}
+.price .top{min-height:48px}
+.rows .row{white-space:nowrap;font-size:13px;padding:9px 0}
+.rows .row.ph{visibility:hidden}
+.card .code{height:16px;overflow:hidden}
+.add{margin-top:auto;height:44px;border-radius:4px;border:0;background:var(--green);color:#fff;font-weight:600}
+.qty{margin-top:auto;display:flex;align-items:center;justify-content:space-between;border:1px solid var(--green);border-radius:4px;height:44px}
+.qty button{width:44px;height:42px;border:0;background:none;color:var(--green);font-size:22px;font-weight:600}
+.qty span{font-weight:800}
+.more{display:block;margin:18px auto 130px;height:48px;padding:0 28px;border-radius:4px;border:1px solid var(--green);background:#fff;color:var(--green);font-weight:700}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:12px 16px;display:none;z-index:15}
+.bar.show{display:block}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0}
+.bar b{font-size:20px;color:var(--green)}
+.primary{height:50px;border:0;border-radius:4px;background:var(--ink);color:#fff;font-weight:700;padding:0 20px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.drawer{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;z-index:30}
+.drawer.open{display:block}
+.panel{position:absolute;right:0;top:0;bottom:0;width:min(440px,100%);background:#fff;display:flex;flex-direction:column}
+.panel .ph-head{display:flex;justify-content:space-between;align-items:center;padding:16px}
+.panel h2{margin:0}
+.close{width:44px;height:44px;border:0;background:var(--bg);border-radius:4px;font-size:22px}
+.items{flex:1;overflow:auto;padding:0 16px}
+.item{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.item .sp{width:56px;height:56px}
+.item .nm{font-size:13px;font-weight:600}
+.item .pr{font-size:14px;color:var(--green);font-weight:800}
+.form{padding:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.form label{font-size:13px;font-weight:600;display:grid;gap:4px}
+.form input[aria-invalid="true"]{border-color:var(--red)}
+.form input,.form select{height:44px;border:1px solid #BDBDBD;border-radius:4px;padding:0 12px;font:inherit;font-size:16px}
+.total{display:flex;justify-content:space-between;font-size:18px;font-weight:800}
+.empty{color:var(--mute);padding:24px 0}
+.sec{margin:22px 0 6px}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:4px}
+.sec-h h2{font-size:20px;margin:0}
+.sec-h button{border:0;background:none;color:var(--green);font-weight:700;text-decoration:underline;min-height:44px;padding:0 4px}
+.sec p{margin:0 0 10px;color:var(--mute);font-size:14px}
+.row-s{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(172px,200px);gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.row-s .card{scroll-snap-align:start}
+.rank{position:absolute;top:8px;left:8px;background:var(--ink);color:#fff;border-radius:4px;font-weight:800;font-size:13px;padding:3px 8px}
+.card{position:relative}
+.back{border:0;background:none;color:var(--green);font-weight:700;min-height:44px;padding:0}
+footer{color:var(--mute);font-size:12px;text-align:center;padding:0 16px 140px}
+</style>
+</head>
+<body>
+<header class="site">
+<div class="wrap">
+<div class="top">
+<div class="logo"><span class="mark" aria-hidden="true"><span>AC</span></span><div class="brand"><b>Ana Carolina</b><small>Revendedora Boticário</small></div></div>
+<button class="cartbtn" id="openCart" aria-label="Abrir carrinho">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.4a1 1 0 0 0 1-.8L21 8H6"/></svg>
+Carrinho <span class="n" id="count">0</span></button>
+</div>
+<div class="search">
+<input id="q" type="search" placeholder="Busque por nome ou código" aria-label="Buscar produtos">
+<select id="sort" aria-label="Ordenar"><option value="promo">Promoções primeiro</option><option value="desc">Maior desconto</option><option value="low">Menor preço</option><option value="high">Maior preço</option><option value="az">A–Z</option></select>
+</div>
+</div>
+</header>
+
+<main class="wrap">
+<section class="hero">
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><h1>Catálogo do ciclo</h1><span style="background:var(--green);color:#fff;border-radius:4px;padding:6px 12px;font-weight:800;font-size:18px">Ciclo 16/2026</span></div>
+<p>Boticário, Eudora, Quem disse, Berenice? e O.U.i com preço de revendedora. Adicione ao carrinho e finalize pelo WhatsApp.</p>
+</section>
+
+<nav class="cats" id="cats" aria-label="Departamentos"></nav>
+<div class="brands" id="brands" role="group" aria-label="Marcas"></div>
+<div id="home"></div>
+<div class="result"><div><button class="back" id="back" hidden>← Voltar ao início</button><h2 id="gridTitle">Todos</h2></div><small id="found"></small></div>
+<div class="grid" id="grid"></div>
+<button class="more" id="more">Ver mais produtos</button>
+</main>
+
+<footer>Ana Carolina · revendedora independente de produtos do Grupo Boticário.<br>Preço cheio e desconto conforme o ciclo 16/2026; preços válidos enquanto durar o estoque. Este site não é um canal oficial do Grupo Boticário.</footer>
+
+<div class="bar" id="bar"><div class="wrap"><div><small id="barCount">0 itens</small><br><b id="barTotal">R$ 0,00</b></div><button class="primary" id="openCart2">Ver carrinho</button></div></div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+<div class="panel" role="dialog" aria-label="Carrinho">
+<div class="ph-head"><h2>Seu carrinho</h2><button class="close" id="closeCart" aria-label="Fechar carrinho">×</button></div>
+<div class="items" id="items"></div>
+<form class="form" id="form">
+<label>Seu nome *<input id="nome" autocomplete="name" required aria-describedby="nomeErr"></label><span id="nomeErr" role="alert" hidden style="color:var(--red);font-size:13px;font-weight:600;margin-top:-4px">Informe seu nome para finalizar o pedido.</span>
+<label>Cidade<select id="cidade"><option>Capivari do Sul</option><option>Palmares do Sul</option></select></label>
+<label>Como prefere receber?<select id="receber"><option>Entrega no meu endereço</option><option>Retiro com a Ana Carolina</option></select></label>
+<div class="total" id="ecoRow" style="font-size:15px;color:var(--green)"><span>Você economizou</span><span id="eco">R$ 0,00</span></div>
+<div class="total"><span>Total</span><span id="total">R$ 0,00</span></div>
+<a class="primary" id="comprar" href="#" target="_blank" rel="noopener">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+Comprar pelo WhatsApp</a>
+</form>
+</div>
+</div>
+
+<script src="produtos.js"></script>
+<script>
+// ===== CONFIGURAÇÃO =====
+const WHATSAPP = "5551984946977"; // número da Ana Carolina com 55 + DDD (trocar)
+// =========================
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const G=(window.PRODUTOS||[]).map(a=>{const g={id:a[0],n:a[1],d:a[2],c:a[3],o:a[4],v:a[5].map(x=>({s:x[0],l:x[1],m:x[2],pc:x[3],por:x[4],b:x[5],img:x[6],cp:x[7]}))};
+ g.b=g.v.some(x=>x.b);g.pc=Math.max(...g.v.map(x=>x.pc));g.min=Math.min(...g.v.map(x=>x.por));g.k=norm(g.n+" "+g.o+" "+g.c+" "+g.v.map(x=>x.s+" "+x.l).join(" "));return g;});
+const BY={};G.forEach(g=>g.v.forEach(v=>BY[v.s]={g,v}));
+const sel={};const cur=g=>g.v[sel[g.id]||0];
+const sp=(v,alt)=>{if(v.img<0)return "<span>sem foto</span>";const n=Math.floor(v.img/100),j=v.img%100;return `<span class="sp" role="img" aria-label="${alt||""}" style="background-image:url(s/${n}.webp);background-position:${(j%10)*100/9}% ${Math.floor(j/10)*100/9}%"></span>`};
+const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const $=id=>document.getElementById(id);
+const cart={}; let dep="Todos", marca="Todas", q="", sort="promo", shown=48;
+const deps=["Todos","Promoções",...["Perfumaria","Maquiagem","Corpo e Banho","Cabelos","Cuidados para Pele","Bem Estar & Saúde","Cuidados Masculinos","Estilo e Viagem","Outros"].filter(d=>G.some(p=>p.d===d))];
+const marcas=["Todas",...new Set(G.map(p=>p.o))];
+const ic={"Todos":"M4 6h16M4 12h16M4 18h16","Promoções":"M20 12l-8 8-8-8V4h8z M8 8h.01","Perfumaria":"M9 3h6v4H9zM7 7h10v14H7z","Maquiagem":"M10 3h4v8h-4zM8 11h8v10H8z","Corpo e Banho":"M8 3h8v4H8zM6 7h12v14H6z","Cabelos":"M6 3v18M10 3v18M14 3v18M18 3v18"};
+$("cats").innerHTML=deps.map(d=>`<button class="cat" data-dep="${d}" aria-pressed="${d===dep}"><span class="ring"><span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B5A43" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="${ic[d]||"M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z"}"/></svg></span></span>${d}</button>`).join("");
+$("brands").innerHTML=marcas.map(m=>`<button class="chip mk" data-mk="${m}" aria-pressed="${m===marca}">${m==="Todas"?"Todas as marcas":m}</button>`).join("");
+$("cats").onclick=e=>{const b=e.target.closest(".cat");if(!b)return;dep=b.dataset.dep;secSel=null;shown=48;document.querySelectorAll(".cat").forEach(x=>x.setAttribute("aria-pressed",x===b));render();};
+$("brands").onclick=e=>{const b=e.target.closest(".mk");if(!b)return;marca=b.dataset.mk;secSel=null;shown=48;document.querySelectorAll(".mk").forEach(x=>x.setAttribute("aria-pressed",x===b));render();};
+document.querySelectorAll(".city").forEach(b=>b.onclick=()=>{document.querySelectorAll(".city").forEach(x=>x.setAttribute("aria-pressed",x===b));$("cidade").value=b.dataset.city;update();});
+let t;$("q").oninput=e=>{clearTimeout(t);t=setTimeout(()=>{q=norm(e.target.value.trim());secSel=null;shown=48;render();},200);};
+$("sort").onchange=e=>{sort=e.target.value;shown=48;render();};
+$("back").onclick=()=>{secSel=null;render();};
+$("more").onclick=()=>{shown+=48;render();};
+
+const TOP10=["47950","58729","81384","74043","85097","85645","93274","48621","51432","49039"];
+const has=(g,re)=>re.test(norm(g.n));
+const SECTIONS=[
+ {id:"top",t:"Vitrine Top 10",p:"Os mais vendidos do ciclo.",f:g=>g.v.some(v=>TOP10.includes(v.s)),o:(a,b)=>TOP10.indexOf(a.v[0].s)-TOP10.indexOf(b.v[0].s),rank:true},
+ {id:"desc",t:"Maiores descontos do ciclo",p:"Os campeões de desconto, por tempo limitado.",f:g=>g.pc>=40,o:(a,b)=>b.pc-a.pc},
+ {id:"siage",t:"Siàge com até "+Math.max(...G.filter(g=>has(g,/siage/)).map(g=>g.pc))+"% OFF",p:"Tratamento para os cabelos com preço especial.",f:g=>has(g,/siage/)&&g.pc>0,o:(a,b)=>b.pc-a.pc},
+ {id:"perf",t:"Perfumaria em promoção",p:"Fragrâncias femininas e masculinas com desconto.",f:g=>g.d==="Perfumaria"&&g.b,o:(a,b)=>b.pc-a.pc},
+ {id:"make",t:"Maquiagem em promoção",p:"Batons, bases, máscaras e muito mais.",f:g=>g.d==="Maquiagem"&&g.b,o:(a,b)=>b.pc-a.pc},
+ {id:"oui",t:"O.U.i Paris",p:"Alta perfumaria francesa.",f:g=>g.o==="O.U.i Paris",o:(a,b)=>b.pc-a.pc},
+ {id:"presente",t:"Presentes e kits",p:"Estojos e combos prontos para presentear.",f:g=>has(g,/\b(kit|estojo|combo|presente)\b/),o:(a,b)=>b.pc-a.pc},
+ {id:"corpo",t:"Corpo e banho",p:"Hidratantes, sabonetes e body splash.",f:g=>g.d==="Corpo e Banho"&&g.b,o:(a,b)=>b.pc-a.pc}
+];
+let secSel=null;
+function home(){return dep==="Todos"&&marca==="Todas"&&!q&&!secSel;}
+function renderHome(){
+ $("home").innerHTML=home()?SECTIONS.map(S=>{const l=G.filter(S.f).sort(S.o);if(!l.length)return "";
+  return `<section class="sec"><div class="sec-h"><h2>${S.t}</h2><button data-sec="${S.id}">Ver tudo</button></div><p>${S.p}</p><div class="row-s">${l.slice(0,S.rank?10:12).map(card).join("")}</div></section>`}).join("")+'':"";
+ $("back").hidden=!secSel;
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-sec]");if(b){secSel=SECTIONS.find(S=>S.id===b.dataset.sec);shown=48;render();scrollTo({top:0});}});
+function list(){
+ if(secSel)return G.filter(secSel.f).sort(secSel.o);
+ const l=G.filter(p=>(dep==="Todos"||(dep==="Promoções"?p.b:p.d===dep))&&(marca==="Todas"||p.o===marca)&&(!q||q.split(/\s+/).every(w=>p.k.includes(w))));
+ const f={promo:(a,b)=>b.b-a.b||b.pc-a.pc,desc:(a,b)=>b.pc-a.pc,low:(a,b)=>a.min-b.min,high:(a,b)=>b.min-a.min,az:(a,b)=>a.n.localeCompare(b.n)}[sort];
+ return l.slice().sort(f);
+}
+function card(g){const v=cur(g),n=cart[v.s]||0,multi=g.v.length>1;
+ const vars=`<div class="varbox">`+(!multi?"":(`<label class="vlab">Cor / opção (${g.v.length})<select class="vsel" data-g="${g.id}">${g.v.map((x,i)=>`<option value="${i}" ${x===v?"selected":""}>${x.l}</option>`).join("")}</select></label>`))+`</div>`;
+ return `<article class="card"><div class="ph">${sp(v,g.n+" "+(multi?v.l:""))}</div><span class="code">${g.o}</span><div class="tags">${v.b?'<span class="tag">Promoção</span>':''}</div><h3 title="${g.n}">${g.n}</h3>${vars}<div class="price"><div class="top"><span class="lbl">Por</span><div class="r"><div class="old">${v.m>v.por?`<span class="de">${brl(v.m)}</span>`:""}${v.pc>0?`<span class="pct">-${v.pc}%</span>`:""}</div><span class="por">${brl(v.por)}</span></div></div></div><div class="rows">${v.m>v.por?`<div class="row"><span>Economize</span><span>${brl(v.m-v.por)}</span></div>`:`<div class="row ph"><span>-</span><span>-</span></div>`}</div>${n?`<div class="qty"><button data-m="${v.s}" aria-label="Remover um">−</button><span>${n}</span><button data-p="${v.s}" aria-label="Adicionar mais um">+</button></div>`:`<button class="add" data-p="${v.s}">Adicionar</button>`}</article>`}
+function render(){renderHome();const l=list();$("gridTitle").textContent=secSel?secSel.t:(dep==="Todos"?"Todos os produtos":dep)+(marca!=="Todas"?" · "+marca:"");$("found").textContent=l.length+" produtos";
+ $("grid").innerHTML=l.slice(0,shown).map(card).join("")||'<p class="empty">Nenhum produto encontrado.</p>';$("more").style.display=l.length>shown?"block":"none";}
+document.addEventListener("click",e=>{const vb=e.target.closest(".var");if(vb){sel[vb.dataset.g]=+vb.dataset.i;render();return;}
+ const p=e.target.closest("[data-p]"),m=e.target.closest("[data-m]");
+ if(p){cart[p.dataset.p]=(cart[p.dataset.p]||0)+1;update();}
+ if(m){cart[m.dataset.m]--;if(cart[m.dataset.m]<=0)delete cart[m.dataset.m];update();}});
+document.addEventListener("change",e=>{const s=e.target.closest(".vsel");if(s){sel[s.dataset.g]=+s.value;render();}});
+const label=x=>x.g.n+(x.g.v.length>1?" – "+x.v.l:"");
+function update(){
+ const ids=Object.keys(cart),count=ids.reduce((s,i)=>s+cart[i],0),total=ids.reduce((s,i)=>s+cart[i]*BY[i].v.por,0);
+ $("count").textContent=count;$("barCount").textContent=count+(count===1?" item":" itens");$("barTotal").textContent=brl(total);$("total").textContent=brl(total);const eco=ids.reduce((s,i)=>s+cart[i]*Math.max(0,BY[i].v.m-BY[i].v.por),0);const ecoPct=eco>0?Math.round(eco/(total+eco)*100):0;$("eco").textContent=brl(eco)+" ("+ecoPct+"%)";$("ecoRow").style.display=eco>0?"flex":"none";
+ $("bar").classList.toggle("show",count>0);
+ $("items").innerHTML=ids.length?ids.map(i=>{const x=BY[i];return `<div class="item">${sp(x.v,"")}<div><div class="nm">${label(x)}</div><div class="code">cód. ${i}</div><div class="pr">${brl(x.v.por)}</div></div><div class="qty" style="width:116px"><button data-m="${i}" aria-label="Remover um">−</button><span>${cart[i]}</span><button data-p="${i}" aria-label="Adicionar mais um">+</button></div></div>`}).join(""):'<p class="empty">Seu carrinho está vazio.</p>';
+ const linhas=ids.map(i=>{const x=BY[i];return `• ${cart[i]}x ${label(x)} (cód. ${i}) – ${brl(x.v.por*cart[i])}`});
+ const msg=`Olá, Ana Carolina! Quero fazer um pedido (ciclo 16/2026):\n\n${linhas.join("\n")}\n\nTotal: ${brl(total)}\nNome: ${$("nome").value.trim()}\nCidade: ${$("cidade").value}\nRecebimento: ${$("receber").value}`;
+ $("comprar").href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+ render();
+}
+["nome","cidade","receber"].forEach(id=>$(id).addEventListener("input",update));
+$("cidade").addEventListener("change",update);
+const open=()=>{$("drawer").classList.add("open");$("drawer").setAttribute("aria-hidden","false");};
+$("openCart").onclick=open;$("openCart2").onclick=open;
+$("closeCart").onclick=()=>{$("drawer").classList.remove("open");$("drawer").setAttribute("aria-hidden","true");};
+$("drawer").onclick=e=>{if(e.target.id==="drawer")$("closeCart").click();};
+$("comprar").addEventListener("click",e=>{if(!Object.keys(cart).length){e.preventDefault();return;}if(!$("nome").value.trim()){e.preventDefault();$("nomeErr").hidden=false;$("nome").setAttribute("aria-invalid","true");$("nome").focus();}});
+$("nome").addEventListener("input",()=>{if($("nome").value.trim()){$("nomeErr").hidden=true;$("nome").removeAttribute("aria-invalid");}});
+$("form").onsubmit=e=>e.preventDefault();
+update();
+</script>
+</body>
+</html>
